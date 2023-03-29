@@ -404,29 +404,10 @@ html .clear-completed:active {
   text-decoration: underline;
 }
 
-/* .todo-list li .icon-pause,
-.todo-list li .icon-play {
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+.task-form {
+  display: flex;
 }
 
-.todo-list li .icon-play {
-  font-size: 15px;
-}
-
-.icon-pause:after {
-  content: '⏸';
-}
-
-.icon-play:after {
-  content: '▶';
-} */
-
-/*
-	Hack to remove background from Mobile Safari.
-	Can't use it globally since it destroys checkboxes in Firefox
-*/
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .toggle-all,
   .todo-list li .toggle {
