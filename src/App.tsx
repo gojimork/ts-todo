@@ -1,11 +1,9 @@
 import "./App.css";
 import NewTaskForm from "./new-task-form";
+import TaskList from "./task-list";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { IFilter, ITask } from "./types";
-
-
-
 
 const App = () => {
   const initialState: Array<ITask> = [
@@ -48,17 +46,13 @@ const App = () => {
   const showCompletedTasks = () => {
     setFilter("Completed");
   };
-  const showAllTasks = ()=> {
+  const showAllTasks = () => {
     setFilter("All");
   };
   const showActiveTasks = () => {
     setFilter("Active");
   };
-  const addTask = (
-    description: string,
-    minutes: string,
-    seconds: string
-  )=> {
+  const addTask = (description: string, minutes: string, seconds: string) => {
     const newTask: ITask = {
       id: uuidv4(),
       completed: false,
@@ -107,8 +101,8 @@ const App = () => {
         <h1>todos</h1>
         <NewTaskForm addTask={addTask} />
       </header>
-    </section>
-    <section className="main">
+
+      <section className="main">
         <TaskList
           todoData={todoData}
           onCompleted={completeTask}
@@ -116,7 +110,8 @@ const App = () => {
           onEditingSubmit={onEditingSubmit}
           filter={filter}
         />
-    </section>    
+      </section>
+    </section>
   );
 };
 
