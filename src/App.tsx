@@ -2,19 +2,12 @@ import "./App.css";
 import NewTaskForm from "./new-task-form";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import { IFilter, ITask } from "./types";
 
-interface ITask {
-  id: string;
-  completed: boolean;
-  description: string;
-  minutes: string;
-  seconds: string;
-  timeStamp: number;
-}
 
-type IFilter = "All" | "Completed" | "Active";
 
-const App: React.FC = () => {
+
+const App = () => {
   const initialState: Array<ITask> = [
     {
       id: uuidv4(),
@@ -42,7 +35,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const [todoData, setTodoData] = useState<Array<ITask>>(initialState);
+  const [todoData, setTodoData] = useState(initialState);
   const [filter, setFilter] = useState<IFilter>("All");
 
   const clearCompleted = () => {
@@ -52,20 +45,20 @@ const App: React.FC = () => {
     });
   };
 
-  const showCompletedTasks = (): void => {
+  const showCompletedTasks = () => {
     setFilter("Completed");
   };
-  const showAllTasks = (): void => {
+  const showAllTasks = ()=> {
     setFilter("All");
   };
-  const showActiveTasks = (): void => {
+  const showActiveTasks = () => {
     setFilter("Active");
   };
   const addTask = (
     description: string,
     minutes: string,
     seconds: string
-  ): void => {
+  )=> {
     const newTask: ITask = {
       id: uuidv4(),
       completed: false,
@@ -115,6 +108,15 @@ const App: React.FC = () => {
         <NewTaskForm addTask={addTask} />
       </header>
     </section>
+    <section className="main">
+        <TaskList
+          todoData={todoData}
+          onCompleted={completeTask}
+          onDeleted={deleteTask}
+          onEditingSubmit={onEditingSubmit}
+          filter={filter}
+        />
+    </section>    
   );
 };
 

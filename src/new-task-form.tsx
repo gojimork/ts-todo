@@ -9,15 +9,15 @@ const NewTaskForm = ({ addTask }: NewTaskFormProps) => {
   const [seconds, setSeconds] = useState("");
   const [minutes, setMinutes] = useState("");
 
-  const onDescriptionChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const onDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDescription(e.currentTarget.value);
   };
 
-  const onMinutesChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const onMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinutes(e.currentTarget.value);
   };
 
-  const onSecondsChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const onSecondsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSeconds(e.currentTarget.value);
   };
 
