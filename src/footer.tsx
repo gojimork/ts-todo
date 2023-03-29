@@ -1,4 +1,4 @@
-// import TasksFilter from "./tasks-filter";
+import TasksFilter from "./tasks-filter";
 import { IFilter } from "./types";
 
 interface FooterProps {
@@ -20,12 +20,12 @@ const Footer = ({
 }: FooterProps) => (
   <footer className="footer">
     <span className="todo-count">{activeTasksCount} items left</span>
-    {/* <TasksFilter
+    <TasksFilter
       showActiveTasks={showActiveTasks}
       showAllTasks={showAllTasks}
       showCompletedTasks={showCompletedTasks}
       filter={filter}
-    /> */}
+    />
     <button type="button" className="clear-completed" onClick={clearCompleted}>
       Clear completed
     </button>
