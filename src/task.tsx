@@ -9,8 +9,8 @@ interface TaskProps {
   minutes: string;
   seconds: string;
   timeStamp: number;
-  onCompleted: (id: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
-  onDeleted: (id: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onCompleted: () => void;
+  onDeleted: () => void;
   onEditingSubmit: (id: string, description: string) => void;
 }
 
