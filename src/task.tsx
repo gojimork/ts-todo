@@ -1,4 +1,4 @@
-import EditTaskForm from "../edit-task-form";
+import EditTaskForm from "./edit-task-form";
 import Timer from "../timer/timer";
 import { formatDistanceToNow } from "date-fns";
 import { useState } from "react";
