@@ -1,6 +1,7 @@
 import "./App.css";
 import NewTaskForm from "./new-task-form";
 import TaskList from "./task-list";
+import Footer from "./footer";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { IFilter, ITask } from "./types";
@@ -108,6 +109,14 @@ const App = () => {
           onCompleted={completeTask}
           onDeleted={deleteTask}
           onEditingSubmit={onEditingSubmit}
+          filter={filter}
+        />
+        <Footer
+          showActiveTasks={showActiveTasks}
+          showAllTasks={showAllTasks}
+          showCompletedTasks={showCompletedTasks}
+          clearCompleted={clearCompleted}
+          activeTasksCount={activeTasksCount}
           filter={filter}
         />
       </section>
